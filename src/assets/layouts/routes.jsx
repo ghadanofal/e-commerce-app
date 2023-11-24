@@ -5,6 +5,7 @@ import Category from "../component/web/category/Category";
 import HomeDashboard from "../component/dashboard/home/Home";
 import CategoryDashboard from "../component/dashboard/category/Category";
 import DashboardLayout from "./DashboardLayout";
+import Register from "../component/web/register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
             {
                 path: 'category',
                 element :<Category/>
+            },
+            {
+                path: 'register',
+                element: <Register/>
             }
         ]
     },

@@ -1,0 +1,47 @@
+form input{
+    background-color: rgb(38, 36, 179);
+    margin: 10px;
+    border-bottom: 1px #646363 solid !important;
+    
+}
+.form-control{
+    background: rgba(213, 212, 226, 0.5) !important;
+
+}
+form input:focus{
+    box-shadow: none !important;
+}
+.formy {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(206, 205, 221, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+form .sign-in{
+    margin-top: 20px;
+    padding-inline: 130px;
+    padding-block: 6px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 20px !important;
+    margin: auto;
+    color: #fff;
+    border: 0;
+}
+form{
+    
+    margin: auto;
+    
+}
