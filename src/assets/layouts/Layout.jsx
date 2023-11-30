@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom'
 
 
 
-export default function Layout() {
+export default function Layout({user}, {setUser}) {
   return (
     <>
-    <Navbar/>
+    <Navbar user={user} setUser={setUser}/>
     <Outlet/>
     <Footer/>
     </>
