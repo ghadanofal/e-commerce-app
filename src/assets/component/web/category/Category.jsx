@@ -32,7 +32,7 @@ export default function Category() {
             </div>
 
 
-            ) : <h2>data not found</h2>}
+            ):<h2>data not found</h2>}
 
         </div>
     )
