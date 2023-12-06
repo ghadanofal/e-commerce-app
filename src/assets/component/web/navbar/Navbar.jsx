@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import './navbar.css'
 
 export default function Navbar({user},{setUser}) {
 
@@ -13,9 +14,9 @@ export default function Navbar({user},{setUser}) {
   }
   console.log(user)
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg ">
     <div className="container">
-    <a className="navbar-brand" href="#">T-shop</a>
+    <a className="navbar-brand" href="#">G-shop</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>
@@ -35,7 +36,7 @@ export default function Navbar({user},{setUser}) {
         <a className="nav-link" href="#">Products</a>
       </li>
       {user && <li className="nav-item">
-        <a className="nav-link" href="#">Carts</a>
+        <Link className="nav-link" to="/cart">Carts</Link>
       </li>}
 
       </ul>
@@ -55,11 +56,7 @@ export default function Navbar({user},{setUser}) {
         <li><Link  className="dropdown-item" href="#" onClick={logout}>logout</Link></li>
       </ul>)
       }
-      {/* <ul className="dropdown-menu ">
-        <li><Link to="/register" className="dropdown-item" href="#">register</Link></li>
-        <li><hr className="dropdown-divider" /></li>
-        <li><Link to="/login" className="dropdown-item" href="#">login</Link></li>
-      </ul> */}
+      
     </li>
       </ul>
    

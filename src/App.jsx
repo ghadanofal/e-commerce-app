@@ -20,6 +20,11 @@ import CategoryDashboard from './assets/component/dashboard/category/Category.js
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {jwtDecode} from 'jwt-decode';
+import CategoryDetails from "./assets/component/web/category/CategoryDetails.jsx";
+import Product from "./assets/component/web/product/Product.jsx";
+import { CartContextProvider } from "./assets/component/web/context/Cart.jsx";
+import Cart from "./assets/component/web/cart/Cart.jsx";
+import UserContextProvider from "./assets/component/web/context/User.jsx";
 
 
 function App() {
@@ -57,9 +62,21 @@ useEffect(()=>{
                         element: <Register/>
                     },
                     {
+                        path: 'cart',
+                        element: <Cart/>
+                    },
+                    {
                         path: 'login',
                         element: <Login SaveCurrentUser={SaveCurrentUser}/>
-                    }
+                    },
+                    {
+                        path: '/products/category/:categoryId',
+                        element: <CategoryDetails/>
+                    },
+                    {
+                        path: '/product/:productId',
+                        element: <Product/>
+                    },
                 ]
             },
             {
@@ -78,7 +95,11 @@ useEffect(()=>{
             }
             ]);
     return (
+        <UserContextProvider>
+        <CartContextProvider>
         <RouterProvider router={router} />
+        </CartContextProvider>
+        </UserContextProvider>
     )
 }
 

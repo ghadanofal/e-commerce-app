@@ -1,0 +1,26 @@
+.swipee{
+    padding-bottom: 16px;
+}
+.swipee img{
+    width: 40%;
+}
+/* .swiper-pagination-bullets .span.active{
+    background-color: red;
+    color: green !important;
+} */
+.swiper-button-prev, .swiper-button-next{
+    background-color: #aa8181;
+    width: 35px !important;
+    height: 35px !important;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+    font-size: 19px !important;
+    color: #fff; 
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin-bottom: -20px;
+}
