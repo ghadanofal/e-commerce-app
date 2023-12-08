@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import Input from '../../pages/Input'
-
 import { useFormik } from 'formik';
-import { LoginSchema } from '../validation/validation.js';
+import { ForgetSchema } from '../validation/validation.js';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/User.jsx';
 
-export default function Login() {
+export default function SendCode() {
 
     let navigate = useNavigate();
 let {setUserToken} = useContext(UserContext)
@@ -16,12 +15,12 @@ let {setUserToken} = useContext(UserContext)
 
 const initialValues ={   
     email: '',
-    password: '',
+    //password: '',
 }
 
 const onSubmit= async users=>{
     console.log(users)
-    const {data}= await axios.post(`https://ecommerce-node4.vercel.app/auth/signin`, users)
+    const {data}= await axios.patch(`https://ecommerce-node4.vercel.app/auth/sendcode`, users)
     console.log(data)
 
     if(data.message=='success'){
@@ -29,7 +28,7 @@ const onSubmit= async users=>{
         setUserToken(data.token)
 
         formik.resetForm();
-        toast.success('your sign-in is successfuly', {
+        toast.success('The code sended successfuly', {
             position: "top-right",
             autoClose: false,
             hideProgressBar: false,
@@ -40,7 +39,7 @@ const onSubmit= async users=>{
             theme: "dark",
             });
     }
-    navigate('/')
+    navigate('/forget')
 
 }
 
@@ -48,7 +47,7 @@ const onSubmit= async users=>{
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validationSchema:LoginSchema,
+        validationSchema: ForgetSchema,
         
     });
 // console.log(formik.values)
@@ -65,14 +64,7 @@ const onSubmit= async users=>{
             placeholder: 'Email',
             value: formik.values.email,
         },
-        {
-            id: 'password',
-            type: 'password',
-            name : 'password',
-            title: 'user password',
-            placeholder: 'Password',
-            value: formik.values.password,
-        }
+        
 ]
 
 
@@ -95,12 +87,12 @@ const onSubmit= async users=>{
         <>
         
         <form onSubmit={formik.handleSubmit}  className='formy'> 
-        <h2 className='text-center mt-5'>Log in</h2>
+        <h2 className='text-center mt-5'>Send code</h2>
             
         {renderInput}
     
-        <input type="submit" value='Log in' className='sign-in' disabled={!formik.isValid}/>
-        <p><Link to='/sendcode'>Forget password?</Link></p>
+        <input type="submit" value='Send code' className='sign-in' disabled={!formik.isValid}/>
+        
         </form>
         </>
 )}

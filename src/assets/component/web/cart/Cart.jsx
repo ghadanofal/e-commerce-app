@@ -1,30 +1,35 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './cart.css'
-import axios from 'axios'
 import { useQuery } from 'react-query'
 import { CartContext } from '../context/Cart'
 
 export default function Cart() {
 
   const {getCartContext, removeCartContext}= useContext(CartContext)
+  const {cartData, setCartData}= useContext(CartContext)
+
+
 
   const getCard = async ()=>{
     const res = await getCartContext()
     console.log(res)
     return res 
+    //console.log(res)
   }
-
+ 
 const {data, isLoading} = useQuery('getCard', getCard)
 
 const removeCartItem = async(productId)=>{
+  
   const res = await removeCartContext(productId)
-  console.log(res) 
+  //console.log(res)
+  return res
 }
 
 if(isLoading){
   return <h2>loading...</h2>
 }
-
+ 
   return (
     <div className="cart">
     <div className="container">

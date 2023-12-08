@@ -10,3 +10,15 @@ export const LoginSchema = yup.object({
     email: yup.string().required("email is required").email(),
     password: yup.string().required("password is required").min(4,"at least 4 character").max(19, "max 19 character") ,
 })
+
+
+
+
+
+export const ForgetSchema = yup.object().shape({
+ email: yup.string().email('Invalid email address').required('Required'),
+});
+
+export const CodeSchema = yup.object({
+    password: yup.string().required("password is required").min(4,"at least 4 character").max(19, "max 19 character") ,
+})

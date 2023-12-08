@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,12 +22,13 @@ export default function Category() {
     const getCategories = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/categories/active?limit=9`);
         return data
-        // console.log(data);
+        console.log(data);
     };
 
     const { data, isLoading } = useQuery('web_categories', getCategories);
     // console.log(query)
     // console.log(data?.categories);
+    
 
     if (isLoading) {
         return <h2>...loading</h2>
