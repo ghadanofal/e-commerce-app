@@ -56,6 +56,7 @@ let [cartData, setCartData] = useState(0)
         const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/cart/removeItem`,
         { productId }, 
         {headers: {Authorization: `Tariq__${token}`}})
+        setCartData(data)
         return data
     }catch(error){
         console.log(error)

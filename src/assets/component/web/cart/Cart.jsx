@@ -13,6 +13,8 @@ export default function Cart() {
   const getCard = async ()=>{
     const res = await getCartContext()
     console.log(res)
+
+    //return (cartData)
     return res 
     //console.log(res)
   }

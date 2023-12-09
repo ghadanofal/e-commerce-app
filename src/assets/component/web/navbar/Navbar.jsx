@@ -3,6 +3,9 @@ import { Link, useNavigate} from "react-router-dom";
 import "./navbar.css";
 import { UserContext } from "../context/User";
 import { CartContext } from "../context/Cart";
+import { CiShoppingCart } from "react-icons/ci";
+
+
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -62,7 +65,7 @@ export default function Navbar() {
             {userToken ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  Carts {cartData.count}
+                  Carts <CiShoppingCart /> {cartData.count}
                 </Link>
               </li>
             ) : null}
@@ -76,6 +79,7 @@ export default function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
+                
                 {userData!=null? (userData.userName):'Account'}
               </a>
 
