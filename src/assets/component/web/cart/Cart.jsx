@@ -6,7 +6,7 @@ import { CartContext } from '../context/Cart'
 export default function Cart() {
 
   const {getCartContext, removeCartContext}= useContext(CartContext)
-  const {cartData, setCartData}= useContext(CartContext)
+  const {count, setCount}= useContext(CartContext)
 
 
 
@@ -24,6 +24,7 @@ const {data, isLoading} = useQuery('getCard', getCard)
 const removeCartItem = async(productId)=>{
   
   const res = await removeCartContext(productId)
+ // getCartContext();
   //console.log(res)
   return res
 }

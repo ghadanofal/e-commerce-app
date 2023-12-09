@@ -12,8 +12,8 @@ export default function Navbar() {
   let { userToken, userData, setUserData } = useContext(UserContext);
   const {getCartContext}= useContext(CartContext)
 
-  const {cartData, setCartData}= useContext(CartContext)
-  console.log(cartData)
+  const {count, setCount}= useContext(CartContext)
+  console.log(count)
  
 
   const logout = ()=>{
@@ -65,7 +65,7 @@ export default function Navbar() {
             {userToken ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  Carts <CiShoppingCart /> {cartData.count}
+                  Carts <CiShoppingCart /> {count}
                 </Link>
               </li>
             ) : null}

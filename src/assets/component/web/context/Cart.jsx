@@ -6,6 +6,7 @@ export const CartContext = createContext(null)
 
 export function CartContextProvider({children}){
 
+    let [count, setCount] = useState(0)
 
     const addToCartContext = async(productId)=>{
 console.log(productId)
@@ -30,6 +31,7 @@ console.log(productId)
                     theme: "dark",
                     });
             }
+            setCount(++count)
             return data
         }
         catch(error){
@@ -38,7 +40,7 @@ console.log(productId)
         
 
     }
-let [cartData, setCartData] = useState(0)
+
     const getCartContext = async ()=>{
 
         const token = localStorage.getItem("userToken")
@@ -46,7 +48,8 @@ let [cartData, setCartData] = useState(0)
         {headers : {Authorization: `Tariq__${token}`}}
         )
         console.log(data.count)
-        setCartData(data)
+        setCount(data.count)
+        
         return data
         
     }
@@ -56,13 +59,14 @@ let [cartData, setCartData] = useState(0)
         const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/cart/removeItem`,
         { productId }, 
         {headers: {Authorization: `Tariq__${token}`}})
-        setCartData(data)
+        setCount(data.products)
+        setCount(--count)
         return data
     }catch(error){
         console.log(error)
     }
 }
-    return <CartContext.Provider value={{addToCartContext, getCartContext, removeCartContext, setCartData, cartData}}>
+    return <CartContext.Provider value={{addToCartContext, getCartContext, removeCartContext, setCount, count}}>
         {children}
     </CartContext.Provider>
 }
