@@ -2,14 +2,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import './cart.css'
 import { useQuery } from 'react-query'
 import { CartContext } from '../context/Cart'
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
 
-  const {getCartContext, removeCartContext}= useContext(CartContext)
+  const {getCartContext,decreaseQuantity, increaseQuantity, removeAll,removeCartContext, Loading}= useContext(CartContext)
   const {count, setCount}= useContext(CartContext)
 
 
-
+console.log(Loading)
   const getCard = async ()=>{
     const res = await getCartContext()
     console.log(res)
@@ -19,20 +20,39 @@ export default function Cart() {
     //console.log(res)
   }
  
-const {data, isLoading} = useQuery('getCard', getCard)
+
 
 const removeCartItem = async(productId)=>{
   
   const res = await removeCartContext(productId)
- // getCartContext();
-  //console.log(res)
+ 
   return res
 }
+
+const increase = async(productId)=>{
+  const res = await increaseQuantity(productId);
+  return res
+}
+
+const decrease = async(productId)=>{
+  const res = await decreaseQuantity(productId);
+  return res
+}
+
+const clear = async()=>{
+  const res = await removeAll();
+  return res
+}
+
+const {data, isLoading} = useQuery('getCard', getCard, decrease,increase, clear ,removeCartItem )
+console.log(data)
 
 if(isLoading){
   return <h2>loading...</h2>
 }
- 
+if(Loading){
+  return <h2>loading...</h2>
+} 
   return (
     <div className="cart">
     <div className="container">
@@ -84,7 +104,7 @@ if(isLoading){
                 </div>
               </div>
               <div className="quantity">
-                <button>
+                <button onClick={()=>decrease(ele.details._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={16}
@@ -102,7 +122,7 @@ if(isLoading){
                   </svg>
                 </button>
                 <span>{ele.quantity}</span>
-                <button>
+                <button onClick={()=>increase(ele.details._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={16}
@@ -160,11 +180,13 @@ if(isLoading){
                 <span>$1345.00</span>
               </div>
               <div className="checkout">
-                <a href="#">Chekout</a>
+                <Link to="createorder">Chekout</Link>
               </div>
+              
             </div>
           </div>
         </div>
+        <button onClick={()=>clear()} className='w-25 btn btn-warning rounded-1'>clear all cart</button>
         <div className="row">
           <h2>Have a coupon ?</h2>
           <p>Add your code for an instant cart discount</p>

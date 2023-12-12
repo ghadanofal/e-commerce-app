@@ -15,6 +15,10 @@ import Authenticate from "../component/web/protectedRoute/Authenticate";
 import ForgetPassword from "../component/web/forgetPassword/ForgetPassword";
 import SendCode from "../component/web/sendCode/SendCode";
 import Profile from "../component/web/profile/Profile";
+import UserInfo from "../component/web/profile/UserInfo";
+import UserContact from "../component/web/profile/UserContact";
+import Orders from "../component/web/profile/Orders";
+import CreateOrder from "../component/web/cart/CreateOrder";
 
 
 export const router = createBrowserRouter([
@@ -51,7 +55,24 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'profile',
-                element: <Profile/>
+                element: 
+                <ProtectedRoute>
+                    <Profile/> 
+                </ProtectedRoute>,
+               children:[
+                {
+                    path: 'info',
+                    element: <UserInfo/>
+                },
+                {
+                    path: 'contact',
+                    element: <UserContact/>
+                },
+                {
+                    path: 'order',
+                    element: <Orders/>
+                }
+               ]
             },
             {
                 path: '/products/category/:categoryId',
@@ -65,8 +86,16 @@ export const router = createBrowserRouter([
                 path: 'cart',
                 element: <ProtectedRoute>
                             <Cart/>
-                        </ProtectedRoute>
+                        </ProtectedRoute>,
+                    
             },
+            {
+                path: '/cart/createorder',
+                element:
+                            <CreateOrder/>
+                        
+            }
+            
         ]
     },
     {
