@@ -155,7 +155,7 @@ console.log(productId)
     }
 }
 
-let [order, setOrder] = useState({})
+let [orders, setOrder] = useState({})
 
 
 const getOrder = async ()=>{
@@ -164,10 +164,10 @@ const getOrder = async ()=>{
     const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/order`,
     {headers : {Authorization: `Tariq__${token}`}}
     )
-    console.log(data)
-    setCount(data)
+    // console.log(data)
+    
     //setCount(data.count)
-    setLoading(false)
+    setOrder(data)
 
     return data
     
@@ -184,9 +184,9 @@ const getOrder = async ()=>{
        decreaseQuantity,
         increaseQuantity, 
         Loading, 
-        
+        orders,
          getOrder, 
-         order, 
+        
          setOrder}}>
         {children}
     </CartContext.Provider>

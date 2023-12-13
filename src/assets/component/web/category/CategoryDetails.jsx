@@ -21,11 +21,12 @@ export default function CategoryDetails() {
   return (
     <div className='row'>
     {data?.length?data.map((ele)=>
-    <div className='col-lg-4 section' key={ele._id}>
+    <div className='col-lg-4 section mt-5 ' key={ele._id}>
       
-    <img src={ele.mainImage.secure_url} alt="" className='w-50'/>
-    <Link to={`/product/${ele._id}`}>
-    Details
+    <img src={ele.mainImage.secure_url} alt="" className='w-50 imagy'/>
+    <p className='mt-3'>{ele.name}</p>
+    <Link to={`/product/${ele._id}`} className='linky'>
+    More Details
     </Link>
     </div>
     ):'no data found'}

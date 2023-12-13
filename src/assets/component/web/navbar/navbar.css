@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&display=swap');
 
 .navbar{
-    background-color: #c2a2a2;
+    background-color: #b4b2b2;
     
 }
-a{
-    color: rgb(207, 26, 26)important;
+.nav a{
+    color: rgb(2, 2, 2) !important;
     font-family: 'IBM Plex Sans', sans-serif;
     font-style: 45px;
+    font-weight: 800;
 }

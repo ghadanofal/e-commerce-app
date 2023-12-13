@@ -32,14 +32,13 @@ export default function Product() {
     <div className='container'>
      <div className='row mt-5'>
       <div className='col-md-6'>
-      <img src={data.mainImage.secure_url } className='w-75'/>
+      <img src={data.mainImage.secure_url } className='w-75 imagy'/>
       </div>
       <div className='col-md-6'>
 
        <p><span>Name of product :</span>{data.name}</p>
        <p className=' '><span>More detials :</span>{data.description}</p>
-       <p><span>price :</span>price :{data.price}</p>
-       <p><span>price :</span>price :{data.price}</p>
+       <p><span>price :</span>{data.price}</p>
        <p><span>finalPrice:</span>{data.finalPrice}</p>
        <button className='btn btn-outline-info' onClick={()=>addToCart(data._id)}>Add to card</button>
        </div>
