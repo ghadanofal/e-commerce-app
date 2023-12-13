@@ -10,9 +10,7 @@ export default function Profile() {
 
     
     console.log(userData)
-    if(loading){
-      return <h2>loading...</h2>
-    }
+    
 
   return (
     <>

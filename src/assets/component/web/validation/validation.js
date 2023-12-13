@@ -22,3 +22,9 @@ export const ForgetSchema = yup.object().shape({
 export const CodeSchema = yup.object({
     password: yup.string().required("password is required").min(4,"at least 4 character").max(19, "max 19 character") ,
 })
+
+export const CreateOrderSchema = yup.object({
+    // couponName: yup.string().required("name is required").length(4) ,
+    address: yup.string().required("address is required"),
+    phone: yup.string().required("phone is required") ,
+})

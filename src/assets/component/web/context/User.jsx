@@ -7,7 +7,7 @@ export default function UserContextProvider({children}){
 
 let [userToken, setUserToken] = useState(null)
 let [userData, setUserData] = useState(null)
-let [loading, setLoading] = useState(true)
+// let [loading, setLoading] = useState(true)
 
 const getUserData = async()=>{
     if(userToken){
@@ -15,7 +15,7 @@ const getUserData = async()=>{
     { headers:{authorization: `Tariq__${userToken}`}}) 
     console.log(data)
     setUserData(data.user)
-    setLoading(false)
+    // setLoading(false)
 }
     
     
@@ -23,7 +23,7 @@ const getUserData = async()=>{
 useEffect( ()=>{
     getUserData()
 },[userToken])
-    return <UserContext.Provider value={{userToken, setUserToken,  setUserData, loading, userData }}>
+    return <UserContext.Provider value={{userToken, setUserToken,  setUserData,  userData }}>
         {children}
     </UserContext.Provider>
 }
