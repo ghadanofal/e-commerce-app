@@ -95,8 +95,8 @@ const onSubmit= async users=>{
 )
 
     return (
-        <>
-        
+        <div className='row'>
+      <div className='col-md-4'>
         <form onSubmit={formik.handleSubmit}  className='formy'> 
         <h2 className='text-center mt-5'>Log in</h2>
             
@@ -104,8 +104,12 @@ const onSubmit= async users=>{
     
         <input type="submit" value='Log in' className='sign-in' disabled={!formik.isValid}/>
         <p><Link to='/sendcode'>Forget password?</Link></p>
-        </form>
-        </>
+        </form> 
+        </div>
+         <div className='col-md-4 colors'>
+
+        </div>
+        </div>
 )}
         
     

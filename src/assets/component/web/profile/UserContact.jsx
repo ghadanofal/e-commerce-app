@@ -11,9 +11,9 @@ export default function UserContact() {
   }
   return (
     <div>
-    <h4>There {userData.userName} Contact</h4>
+    <h4>To Contact {userData.userName} </h4>
     
-    <h4 className=''>Email :{userData.email}</h4>
+    <h5 className=''>Email :{userData.email}</h5>
     <h4> {userData.phone}</h4>
     </div>
   )

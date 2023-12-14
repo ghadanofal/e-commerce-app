@@ -23,35 +23,37 @@ if(isLoading){
   return (
     <>
      <div className="table-container">
-        <table>
-            <thead>
+        <table className='m-4'>
+           {data?.orders?(data?.orders.map((ele, index)=>
+               <>
+            <thead className='m-4'>
+              <h4 className='m-4 order'>Order {index}</h4> 
                 <tr>
-                    <th>Order number</th>
-                    <th>address</th>
+                    {/* <th>Order number</th> */}
+                    <th>Address</th>
+                     <th>Phone number</th>
                     <th>Final Price</th>
-
-                    <th>Phone number</th>
                     <th>Payment Type</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
        
-                {data?.orders.map((ele, index)=>
-               <>
+               
                <tr className=''>
-                    <td>{index}</td>
+                    {/* <td>{index}</td> */}
                     <td>{ele.address}</td>
+                     <td>{ele.phoneNumber}</td>
                     <td>{ele.finalPrice}</td>
-                    <td>{ele.phoneNumber}</td>
                     <td>{ele.paymentType}</td>
                     <td>{ele.status}</td>
                    
                   </tr> 
-                  </>  )}
-               
+                 
                
             </tbody>
+            </>  
+                )): <h2>There is no orders</h2>}
         </table>
     </div>
   

@@ -12,10 +12,11 @@ export default function UserInfo() {
   }
   return (
     <div className='text-center'>
-    <h1>UserInfo</h1>
-    <h2 className='fs-3'>{userData.userName}</h2>
-<p>{userData.email}</p>
-<img src={userData.image.secure_url} alt="" />
+    <h1 className='m-2'>Info of {userData.userName}</h1>
+   
+<img src={userData.image.secure_url} alt="" className='person mt-3' />
+<h2 className='fs-3 mt-3'>{userData.userName}</h2>
+<p>Email : {userData.email}</p>
    
     </div>
   )

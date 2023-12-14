@@ -36,7 +36,9 @@ export default function Category() {
 
     return (
     <div className='container mt-5 swipee'>
-    <div className='swiper-pagination mb-5 '></div>
+    <div className='swiper-pagination mb-5 '>
+        
+    </div>
         <Swiper
         
        modules={[Navigation, Pagination, Autoplay]}

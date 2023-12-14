@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Preahvihear&display=swap');
 body {
             margin: 0;
             padding: 0;
@@ -7,7 +9,7 @@ body {
         .sidebar {
             width: 200px;
             height: 100%;
-            background-color: #5a5858;
+            background-color: #3a3b3b;
             position: fixed;
             top: 0;
             left: 0;
@@ -31,8 +33,9 @@ body {
 
         .sidebar ul li a {
             margin-top: 300px;
-            color: rgb(214, 209, 209) !important;
+            color: #f1ecec !important;
             text-decoration: none;
+            
         }
 
         .sidebar ul li a:hover {
@@ -49,7 +52,7 @@ body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:#fff;
         }
         
         .table-container {
@@ -81,4 +84,18 @@ body {
         
         ul li {
             margin-bottom: 5px;
+        }
+
+        .person{
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .order{
+            color:rgb(207, 53, 53);
+        }
+        .th{
+            font-family: 'IBM Plex Sans', sans-serif !important;
+            font-family: 'Preahvihear', sans-serif !important;
         }

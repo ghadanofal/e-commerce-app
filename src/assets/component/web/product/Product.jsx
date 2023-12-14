@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../context/Cart';
+import './product.css'
 
 export default function Product() {
     const {productId} = useParams();
@@ -34,13 +35,14 @@ export default function Product() {
       <div className='col-md-6'>
       <img src={data.mainImage.secure_url } className='w-75 imagy'/>
       </div>
-      <div className='col-md-6'>
+      <div className='col-md-6 product-details'>
 
-       <p><span>Name of product :</span>{data.name}</p>
-       <p className=' '><span>More detials :</span>{data.description}</p>
-       <p><span>price :</span>{data.price}</p>
-       <p><span>finalPrice:</span>{data.finalPrice}</p>
-       <button className='btn btn-outline-info' onClick={()=>addToCart(data._id)}>Add to card</button>
+       <h3>{data.name}</h3>
+       <p><span>price : </span>{data.price}$</p>
+       <p><span>finalPrice: </span>{data.finalPrice}$</p>
+       <p className=' '>{data.description}</p>
+      
+       <button className='btn add' onClick={()=>addToCart(data._id)}>ADD TO CARD</button>
        </div>
 </div> 
     </div>

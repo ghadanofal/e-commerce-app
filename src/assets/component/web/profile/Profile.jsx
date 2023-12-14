@@ -18,10 +18,10 @@ export default function Profile() {
         <h1>Profile</h1>
         <ul>
            
-            <li><Link to ="info">info</Link></li>
+            <li><Link to ="info">Info</Link></li>
            
             <li><Link to="contact">Contact</Link></li>
-            <li><Link to="order">Order</Link></li>
+            <li><Link to="order">Orders</Link></li>
         </ul>
     </div>
 

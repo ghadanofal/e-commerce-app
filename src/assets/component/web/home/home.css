@@ -1,0 +1,7 @@
+/* .smsm{
+    background-size: cover;
+} */
+.smsm{
+    background-image: url('/public/img/1.png');
+    background-size: cover;
+}

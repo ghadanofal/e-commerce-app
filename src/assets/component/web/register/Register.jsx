@@ -113,13 +113,15 @@ console.log(formik)
     return (
     <>
     
-    <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy'> 
+          <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy'> 
     <h2 className='text-center mt-5'>Sign up</h2>
         
     {renderInput}
 
     <input type="submit" value='sign in' className='sign-in' disabled={!formik.isValid}/>
-    </form>
+    </form>  
+        
+    
     </>
     )
 }

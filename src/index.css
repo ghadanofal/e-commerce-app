@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+body{
+    background-color:  fafbfc !important;
+}
+
+.section{
+    font-family: 'Raleway', sans-serif;
+    text-align: center !important;
+}
+a{
+    text-decoration: none !important;
+    font-family: 'Raleway', sans-serif ;
+    color: #080808 !important;
+    font-weight: 800;
+}
+span{
+    text-transform: capitalize;
+    color: black;
+}
+p{
+    color:  rgba(0, 0, 0);
+    font-weight: bold;
+}

@@ -4,12 +4,25 @@
 
 }
 
-
+.chekouts{
+    color: #fff !important;
+}
 .cart-items{
     display: flex;
     padding:40px 0;
 
 
+}
+.clear{
+    color: #fff !important;
+    background-color: #424241 !important;
+    width: 100px;
+    /* border: 1px solid #000 !important; */
+}
+.clear:hover{
+    background-color:rgb(177, 33, 33) !important;
+    color :#fff !important;
+    transition: 0.4s;
 }
 .cart-header{
     display: flex;
@@ -261,9 +274,16 @@ footer .logo a {
 .second-footer{
     padding:20px 0 ;
 }
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Preahvihear&display=swap');
+.title, h2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Preahvihear', sans-serif;
+}
 
-
-
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Preahvihear', sans-serif;
+}
 
 
 
