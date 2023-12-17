@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Preahvihear&display=swap');
+
 .cart{
     padding:20px 0 60px 0;
-
-
 }
 
 .chekouts{
@@ -274,7 +274,6 @@ footer .logo a {
 .second-footer{
     padding:20px 0 ;
 }
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Preahvihear&display=swap');
 .title, h2{
     font-family: 'IBM Plex Sans', sans-serif;
     font-family: 'Preahvihear', sans-serif;

@@ -19,6 +19,7 @@ import UserInfo from "../component/web/profile/UserInfo";
 import UserContact from "../component/web/profile/UserContact";
 import Orders from "../component/web/profile/Orders";
 import CreateOrder from "../component/web/cart/CreateOrder";
+import AllProducts from "../component/web/All-products/AllProducts";
 
 
 export const router = createBrowserRouter([
@@ -94,6 +95,14 @@ export const router = createBrowserRouter([
                 element:
                             <CreateOrder/>
                         
+            },
+            {
+                path: '/products',
+                element : <AllProducts/>
+            },
+            {
+                path: '/products/:page',
+                element : <AllProducts/>
             }
             
         ]
