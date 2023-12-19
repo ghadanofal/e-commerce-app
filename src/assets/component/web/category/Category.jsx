@@ -43,7 +43,7 @@ export default function Category() {
         
        modules={[Navigation, Pagination, Autoplay]}
        spaceBetween={1}
-       slidesPerView={5}
+       slidesPerView={4}
        loop= {true}
         autoplay={ {
         delay: 1000,

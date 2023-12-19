@@ -19,6 +19,11 @@ export default function Product() {
     const [rating, setRating] = useState(0)
    const [Reviews, setReviews] = useState([])
    const[avgReview, setAvgReview] = useState(0)
+   const [currentPage, setCurrentPage] = useState(1);
+  const reviewsPerPage = 3; // Number of reviews to show per page
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = Reviews.slice(indexOfFirstReview, indexOfLastReview);
 
     //console.log(productId)
     const {addToCartContext} = useContext(CartContext)
@@ -26,7 +31,7 @@ export default function Product() {
     const getProduct = async()=>{
       const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/products/${productId}`)
        console.log(data)
-       console.log(data.product.reviews)
+       console.log(data.product)
        setReviews(data.product.reviews)
        
       //  console.log(data.product.ratingNumbers)
@@ -60,7 +65,7 @@ const onSubmit= async (users)=>{
       localStorage.setItem("userToken", userToken)
       setUserToken(userToken)
         formik.resetForm();
-        toast.success('review created  successfuly', {
+        toast.success('your comment is publish', {
             position: "top-right",
             autoClose: false,
             hideProgressBar: false,
@@ -163,17 +168,69 @@ const onSubmit= async (users)=>{
   
 
 
+  
+
+  const renderReviews = currentReviews.map((ele) => (
+    <>
+
+<div className="reviewSection col-md-4">
+  <div className="reviewItem">
+    <div className="top">
+      <div className="clientImage">
+        <img src={(ele.createdBy.image.secure_url)} alt />
+        <span>{ele.createdBy.userName}</span>
+      </div>
+    </div>
+    
+    <article className='ms-5'>
+    <div className="comment">
+    {Array.from({ length: Math.floor(ele.rating) }).map((ele) => (
+        <span className='checked fs-4'>&#9733;</span>
+        ))}
+        {Array.from({ length: 5- Math.floor( ele.rating) }).map((ele) => (
+        <span className='non-checked fs-4'>&#9733;</span>
+        ))}
+        </div>
+      <p className="review">{ele.comment}</p>
+      {/* <p>{ele.createdBy.createdAt}</p> */}
+    </article>
+  </div>
+</div>
+
+</>
+  ));
+
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(Reviews.length / reviewsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const renderPageNumbers = pageNumbers.map((number) => (
+    <li
+      key={number}
+      className={currentPage === number ? 'current-page' : 'pagination-link'}
+      onClick={() => setCurrentPage(number)}
+    >
+      {number}
+    </li>
+  ))
+  
+
   return (
     <div className='container'>
      <div className='row my-5'>
-      <div className='col-md-6'>
-      <img src={data.mainImage.secure_url } className='w-75 imagy'/>
+      <div className='col-md-5'>
+        <div className="gellary">
+        <img src={data.mainImage.secure_url } className='w-100'/>
+        </div>
       </div>
-      <div className='col-md-6 product-details'>
+      <div className='col-md-7 details px-5'>
 
-       <h3>{data.name}</h3>
-       <p><span>price : </span>{data.price}$</p>
-       <p><span>finalPrice: </span>{data.finalPrice}$</p>
+       <h1 className='fs-3'>{data.name}</h1>
+       <h2 className='price'>{data.price}$</h2>
+       <h3>{data.discount} OFF</h3>
+       {/* <p><span>finalPrice: </span>{data.finalPrice}$</p> */}
 
         <div>
         {Array.from({ length: Math.floor(avgReview) }).map((ele) => (
@@ -185,50 +242,57 @@ const onSubmit= async (users)=>{
         ))}</div>
 
 
-          {/* {Review.map((ele)=>(
-            <>
-            <h2>{ele.rating}</h2>
-            </>
-          ))} */}
         {Reviews.map((ele)=>{
   <p>{ele.rating}</p>
  })}
 
-        <h2>{avgReview.toFixed(2)} out of 5 stars</h2>
-       <p className=' '>{data.description}</p>
+        <h2 className='rate'>{avgReview.toFixed(2)} out of 5 stars</h2>
+       <p className='description '>{data.description}</p>
       
-       <button className='btn add' onClick={()=>addToCart(data._id)}>ADD TO CARD</button>
+      <div className="product-price ">
+      {/* <p className='price'>{data.finalPrice}$</p> */}
+      <button className='btn add mt-4 ' onClick={()=>addToCart(data._id)}>ADD TO CARD</button>
+
+      </div>
        </div>
        
 </div> 
 
 
 
-<div className="row  ">
-  <div className="col-md-3">
-   <img src="/img/images.png" alt="" />
-  </div>
-  
-  <div className="col-md-8 text-start">
- {Reviews.map((ele)=>
-  <> 
-  <div>
-  <span className='fs-3'>{(ele.rating)}</span>
-  {Array.from({ length: Math.floor(ele.rating) }).map((ele) => (
-        <span className='checked'>&#9733;</span>
-        ))}
-        {Array.from({ length: 5- Math.floor( ele.rating) }).map((ele) => (
-        <span className='non-checked'>&#9733;</span>
-        ))}
-</div>
-  <p className=''>{(ele.comment)}</p>
-   
-  </>
- )}</div>
-</div>
+
+
+
+{/* ============= */}
+
+<div class='row  mt-5'>
+        <div className='text-center'>
+          <h2 className='mt-5'> Customer reviews </h2>
+          <h2 class='description fs-5'>Our customer review</h2>
+        </div>
+        <>
+          {renderReviews}
+          <ul id='page-numbers' className='d-flex justify-content-center align-items-center'>{renderPageNumbers}</ul>
+        </>
+      </div>
+
+{/* ============ */}
+
+
+
+
+
+
+
+
+
+
+
+
 
 <form onSubmit={formik.handleSubmit}  className='form col-md-4'> 
-        <h2 className='text-center mt-5'>your reviews</h2>
+        <h2 className='text-center mt-5'>Review And rating</h2>
+        <h2 className='text-center fs-6'>How was your experience about our product?</h2>
             
         {renderInput}
     
