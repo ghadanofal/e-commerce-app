@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/User';
+import Loeader from '../loader/Loeader';
 
 export default function UserContact() {
   let { userToken, userData, setUserData, loading } = useContext(UserContext);
@@ -7,7 +8,7 @@ export default function UserContact() {
   console.log(userData)
   
   if(loading){
-    return <h2>loading...</h2>
+    return <Loeader></Loeader>
   }
   return (
     <div>

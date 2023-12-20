@@ -6,6 +6,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/User.jsx';
+import { FaChevronRight } from "react-icons/fa6";
+
 
 export default function ForgetPassword() {
 
@@ -102,14 +104,36 @@ const onSubmit= async users=>{
     return (
         <>
         
-        <form onSubmit={formik.handleSubmit}  className='formy'> 
-        <h2 className='text-center mt-5'>ReSign in</h2>
-            
-        {renderInput}
+        <div className="containers">
+	<div className="screen">
+		<div className="screen__content">
+			
+            <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy login'> 
+    <h2 className='text-center  button__text'>Log In</h2>
+    <div className="login__field my-2">   
+    {renderInput}
+    </div>
     
-        <input type="submit" value='sign in' className='sign-in' disabled={!formik.isValid}/>
-        
-        </form>
+    <div className='login__submit'>
+       <input type="submit" value='log in' className='sign-in button button__text' disabled={!formik.isValid}/>
+       
+    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+    </div>
+    
+
+   
+    </form>  
+
+			
+		</div>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div> 
         </>
 )}
         

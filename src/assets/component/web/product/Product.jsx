@@ -8,6 +8,9 @@ import { Rating } from 'react-simple-star-rating'
 import { useFormik } from 'formik';
 import Input from '../../pages/Input';
 import { UserContext } from '../context/User';
+import { FaChevronRight } from "react-icons/fa6";
+import Loeader from '../loader/Loeader';
+
 
 
 
@@ -163,7 +166,7 @@ const onSubmit= async (users)=>{
 
 
   if(isLoading){
-      return <h2>loading...</h2>
+    return <Loeader></Loeader>
   }
   
 
@@ -280,16 +283,7 @@ const onSubmit= async (users)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
+{/* 
 <form onSubmit={formik.handleSubmit}  className='form col-md-4'> 
         <h2 className='text-center mt-5'>Review And rating</h2>
         <h2 className='text-center fs-6'>How was your experience about our product?</h2>
@@ -297,9 +291,36 @@ const onSubmit= async (users)=>{
         {renderInput}
     
         <input type="submit" value='submite review' className='sign-in' disabled={!formik.isValid}/>
-        </form>
+        </form> */}
+
+<div className="d-flex justify-content-center align-items-center">
+	<div className="scree">
+		<div className="screen__content">
+			
+            <form onSubmit={formik.handleSubmit}  className='formy login pt-0'> 
+            <h2 className='text-center mt-5'>Review And rating</h2>
+        <h2 className='text-center fs-6'>How was your experience about our product?</h2>
+        
+    <div className="login__field my-2  ">   
+    {renderInput}
+    </div>
+    
+    <div className='login__submit'>
+       <input type="submit" value='submit review' className='sign-in button button__text' disabled={!formik.isValid}/>
+       
+    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+    </div>
+    
+    </form>  
+		</div>
+	</div>
+</div> 
+    
 
     </div>
+
+
+
   )
           }
 

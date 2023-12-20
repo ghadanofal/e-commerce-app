@@ -1,6 +1,5 @@
 import React from "react";
 import Category from "../category/Category";
-import img from '../../../../../public/img/shop.avif';
 import './home.css'
 
 export default function Home() {

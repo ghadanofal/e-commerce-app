@@ -4,21 +4,27 @@ import { useQuery } from 'react-query'
 import { CartContext } from '../context/Cart'
 import { Link } from 'react-router-dom'
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
+import Loeader from '../loader/Loeader'
+
 
 export default function Cart() {
 
-  const {getCartContext,decreaseQuantity, increaseQuantity, removeAll,removeCartContext, Loading}= useContext(CartContext)
+  const {getCartContext,decreaseQuantity, increaseQuantity, removeAll,removeCartContext}= useContext(CartContext)
   const {count, setCount}= useContext(CartContext)
 
+  let [loading, setLoading] = useState(true)
 
-console.log(Loading)
+
+
+
+
   const getCard = async ()=>{
+   
     const res = await getCartContext()
-    console.log(res)
-
-    //return (cartData)
+     setLoading(false)
     return res 
-    //console.log(res)
+    
   }
  
 
@@ -26,34 +32,49 @@ console.log(Loading)
 const removeCartItem = async(productId)=>{
   
   const res = await removeCartContext(productId)
- 
   return res
 }
 
-const increase = async(productId)=>{
+const increase = async (productId) => {
+  setLoading(true);
   const res = await increaseQuantity(productId);
-  return res
-}
+  setLoading(false);
+  return res;
+};
+
 
 const decrease = async(productId)=>{
+  setLoading(true);
   const res = await decreaseQuantity(productId);
+  setLoading(false)
   return res
 }
 
 const clear = async()=>{
+  setLoading(true);
   const res = await removeAll();
+  setLoading(false)
   return res
 }
 
-const {data, isLoading} = useQuery('getCard', getCard, decrease,increase, clear ,removeCartItem )
-console.log(data)
+const {data, isLoading} = useQuery('getCard', getCard )
 
-if(isLoading){
-  return <h2>loading...</h2>
-}
-if(Loading){
-  return <h2>loading...</h2>
-} 
+
+// console.log(isLoading)
+console.log(data)
+useEffect(()=>{
+  getCard()
+ 
+ 
+},[])
+
+
+if(loading){
+  return <Loeader></Loeader>
+  }
+ 
+
+
   return (
     <div className="cart">
     <div className="container">
@@ -112,6 +133,7 @@ if(Loading){
                     height={17}
                     viewBox="0 0 16 17"
                     fill="none"
+                    className='bg-danger m-2  increase'
                   >
                     <path
                       d="M3.22852 8.5H12.5618"
@@ -122,7 +144,7 @@ if(Loading){
                     />
                   </svg>
                 </button>
-                <span>{ele.quantity}</span>
+                <span>{ele.quantity>=0?ele.quantity:0}</span>
                 <button onClick={()=>increase(ele.details._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +152,7 @@ if(Loading){
                     height={17}
                     viewBox="0 0 16 17"
                     fill="none"
+                    className='bg-success m-2 rounded-5 decrease'
                   >
                     <path
                       fillRule="evenodd"
@@ -140,14 +163,14 @@ if(Loading){
                   </svg>
                 </button>
               </div>
-              <div className="price">{ele.details.finalPrice}</div>
+              <div className="price">{ele.details.finalPrice} $</div>
               <div className="subtotal">${ele.quantity * ele.details.finalPrice}</div>
             </div>
               )
             ): <h2>cart is empty</h2>}
            
 
-           <button onClick={()=>clear()} className=' clear btn m-auto  rounded-3 d-flex justify-content-center'>Clear cart</button>
+           <button onClick={()=>clear()} className=' clear btn m-auto  rounded-3 d-flex justify-content-center align-items-center'>Clear cart <MdDelete className='m-2 fs-4'/></button>
            
 
           </div>

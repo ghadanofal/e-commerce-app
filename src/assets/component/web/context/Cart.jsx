@@ -23,7 +23,7 @@ console.log(productId)
             if(data.message=='success'){
                 toast.success('product added successfuly', {
                     position: "top-right",
-                    autoClose: false,
+                    autoClose: true,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -34,7 +34,7 @@ console.log(productId)
             }
             
             setCount(++count)
-            setLoading(false)
+            // setLoading(false)
             return data
         }
         catch(error){
@@ -53,7 +53,7 @@ console.log(productId)
         console.log(data.count)
         setCount(data.count)
         //setCount(data.count)
-        setLoading(false)
+        // setLoading(false)
 
         return data
         
@@ -70,6 +70,9 @@ console.log(productId)
             }
             )
             console.log(data)
+           
+            // setLoading(true)
+            //  console.log(Loading)
             if(data.message=='success'){
                 toast.success('product increase successfuly', {
                     position: "top-right",
@@ -81,10 +84,14 @@ console.log(productId)
                     progress: undefined,
                     theme: "dark",
                     });
+
+                   
+
             }  
             console.log(data.count)
-           
-            setLoading(false)
+            // setLoading(false)
+            // console.log(Loading)
+            
             return data
         }
         catch(error){
@@ -147,7 +154,8 @@ console.log(productId)
         { productId }, 
         {headers: {Authorization: `Tariq__${token}`}})
         setCount(data.products)
-        setCount(--count)
+        if(count>0)
+        {setCount(--count)}
         setLoading(false)
         return data
     }catch(error){
@@ -183,7 +191,8 @@ const getOrder = async ()=>{
       count,
        decreaseQuantity,
         increaseQuantity, 
-        Loading, 
+        Loading,
+        setLoading, 
         orders,
          getOrder, 
         

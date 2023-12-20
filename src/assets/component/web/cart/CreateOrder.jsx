@@ -262,14 +262,18 @@ const onSubmit= async (users)=>{
           </div>
          
         </div>
-        {/* <button onClick={()=>clear()} className='w-25 btn btn-warning rounded-1'>clear all cart</button> */}
-        <form onSubmit={formik.handleSubmit}  className='form col-md-4'> 
+      <div className='d-flex justify-content-center align-items-center'>
+         <form onSubmit={formik.handleSubmit}  className='form col-md-4'> 
         <h2 className='text-center mt-5'>Create order</h2>
             
         {renderInput}
-    
-        <input type="submit" value='create order' className='sign-in' disabled={!formik.isValid}/>
+    <div className="login__submit w-50 d-flex justify-content-center align-items-center">
+    <input type="submit" value='create order' className='sign-in text-center  button button__text' disabled={!formik.isValid}/>
+    </div>
+
         </form>
+      </div>
+       
       </div>
     </div>
   </div>

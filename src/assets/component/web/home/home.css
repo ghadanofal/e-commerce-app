@@ -16,12 +16,12 @@ align-items:  start ;
 }
 
 #hero h1{
-  color: #088178;
+  color: #310e3f;
 }
 #hero button{
-  background-image: url('../../../../../public/img/button.png');
+  background-image: url('/img/button.png');
   background-color: transparent;
-  color:  #088178;
+  color:  #310e3f;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat ;
   cursor: pointer;

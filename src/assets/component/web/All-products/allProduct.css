@@ -64,7 +64,7 @@
   position: absolute;
   color: #fff;
   border-radius: 4px;
-  padding: 2px 12px;
+  padding: 3px 10px;
   margin: 8px;
   font-size: 12px;
 }
@@ -114,5 +114,16 @@
   border-radius: 0px;
   font-size: 12px;
   margin-top: 10px;
+}
+.stock{
+  background-color: #964099;
+  margin: 0.7rem !important;
+}
+.add-to-cart{
+  background-color: #964099 !important;
+}
+.add-to-cart:hover{
+  background-color: #40995e !important;
+  
 }
 /* Product Card End */

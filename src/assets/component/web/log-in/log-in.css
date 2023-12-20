@@ -1,0 +1,8 @@
+.forget{
+    color:rgb(48, 2, 48) !important
+}
+.forget:hover{
+    text-decoration: underline !important;
+    color:rgb(129, 5, 129) !important
+}
+

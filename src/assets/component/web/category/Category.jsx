@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
+import Loeader from '../loader/Loeader';
 
 
 export default function Category() {
@@ -31,7 +32,7 @@ export default function Category() {
     
 
     if (isLoading) {
-        return <h2>...loading</h2>
+        return <Loeader></Loeader>
     }
 
     return (

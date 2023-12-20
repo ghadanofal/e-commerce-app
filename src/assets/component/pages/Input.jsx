@@ -7,7 +7,7 @@ export default function Input({type={text}, id, name, title, value, errors, plac
     <div className='row justify-content-center align-items-center'>
     <div className="input col-md-12 soso">
         {/* <label htmlFor={id} className=''>{title}</label> */}
-        <input type={type} id={id} name={name} className='form-control' placeholder={placeholder} onBlur={onBlur} title={title} value={value}  onChange={onchange} />
+        <input type={type} id={id} name={name} className='form-control login__input' placeholder={placeholder} onBlur={onBlur} title={title} value={value}  onChange={onchange} />
         {touched[name] && errors[name] &&<p className='text-danger'>{errors[name]}</p>}
     </div>
     </div>

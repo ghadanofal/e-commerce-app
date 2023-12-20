@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../context/Cart'
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import Loeader from '../loader/Loeader';
 
 export default function Orders() {
    
@@ -18,7 +19,7 @@ console.log(orders)
 
   // console.log(data)
 if(isLoading){
-  return <h2>loading...</h2>
+  return <Loeader></Loeader>
 }
   return (
     <>

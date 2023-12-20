@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../context/User';
+import Loeader from '../loader/Loeader';
 
 export default function UserInfo() {
   let { userToken, userData, setUserData, loading } = useContext(UserContext);
@@ -8,7 +9,7 @@ export default function UserInfo() {
   console.log(userData)
   
   if(loading){
-    return <h2>loading...</h2>
+    return <Loeader></Loeader>
   }
   return (
     <div className='text-center'>

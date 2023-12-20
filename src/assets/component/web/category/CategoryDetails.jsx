@@ -3,6 +3,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { Link, useParams } from 'react-router-dom';
 import './categoryDetails.css'
+import Loeader from '../loader/Loeader';
 
 export default function CategoryDetails() {
     const {categoryId} = useParams();
@@ -16,7 +17,7 @@ export default function CategoryDetails() {
     console.log(data)
 
     if(isLoading){
-        return <h2>loading...</h2>
+      return <Loeader></Loeader>
     }
   return (
     <div className='row'>

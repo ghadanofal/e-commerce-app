@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import { registerSchema } from '../validation/validation.js';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { FaChevronRight } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 export default function Register() {
 
@@ -113,15 +115,53 @@ console.log(formik)
     return (
     <>
     
-          <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy'> 
+          {/* <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy'> 
     <h2 className='text-center mt-5'>Sign up</h2>
         
     {renderInput}
 
     <input type="submit" value='sign in' className='sign-in' disabled={!formik.isValid}/>
+    </form>   */}
+
+
+
+       
+       
+       
+       <div className="containers">
+	<div className="screen">
+		<div className="screen__content">
+			
+            <form onSubmit={formik.handleSubmit} encType='multipart/form-data' className='formy login'> 
+    <h2 className='text-center  button__text'>Sign Up</h2>
+    <div className="login__field my-2">   
+    {renderInput}
+    </div>
+    
+    <div className='login__submit'>
+       <input type="submit" value='' className='sign-in button button__text' disabled={!formik.isValid}/>
+       Sign Up
+    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+    </div>
+
+   
     </form>  
-        
+
+			
+		</div>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div> 
+    
+
     
     </>
+    
+    
     )
 }
