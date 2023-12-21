@@ -112,9 +112,9 @@ const onSubmit= async users=>{
     {renderInput}
     </div>
     
-    <div className='login__submit'>
+    <div className='login__submit d-flex justify-content-center '>
        <input type="submit" value='log in' className='sign-in button button__text' disabled={!formik.isValid}/>  
-       <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+       <FaChevronRight className='button__icon fas fa-chevron-right log' /> 
     </div>
     <p className='mt-5 '><Link to='/sendcode' className='forget'>Forget password?</Link></p> 
     

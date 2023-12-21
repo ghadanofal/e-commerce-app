@@ -58,7 +58,6 @@ form .sign-in{
    
     background: #fff;
 	font-size: 14px;
-	
 	border: 1px solid #D4D3E8;
 	text-transform: uppercase;
 	color: #4C489D !important;
@@ -171,7 +170,24 @@ form .sign-in{
 	border-bottom-color: #6A679E;
 }
 
-.login__submit {
+/* .login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+} */
+.sign-in{
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
@@ -188,7 +204,30 @@ form .sign-in{
 	cursor: pointer;
 	transition: .2s;
 }
-
+.sign{
+	right: 100px;
+    font-size: 24px;
+    margin-left: auto;
+    color: #7875B5;
+    position: absolute;
+    bottom: 56px;
+}
+.log{
+		font-size: 24px;
+		margin-left: auto;
+		color: #7875B5;
+		position: absolute;
+		bottom: 164px;
+		left: 233px;
+}
+.review-icon{
+	font-size: 24px;
+    margin-left: auto;
+    color: #7875B5;
+    position: absolute;
+    bottom: 45px;
+    right: 63px;
+}
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {

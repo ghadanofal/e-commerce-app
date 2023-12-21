@@ -138,10 +138,9 @@ console.log(formik)
     {renderInput}
     </div>
     
-    <div className='login__submit'>
-       <input type="submit" value='' className='sign-in button button__text' disabled={!formik.isValid}/>
-       Sign Up
-    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+    <div className='login__submit d-flex justify-content-center '>
+       <input type="submit" value='Sign Up' className='sign-in button button__text' disabled={!formik.isValid} />
+       <FaChevronRight className='button__icon fas fa-chevron-right sign' /> 
     </div>
 
    

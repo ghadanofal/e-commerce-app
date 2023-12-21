@@ -7,7 +7,7 @@ export default function Home() {
     <>
       
       <section id="hero">
-        <h4 className="">trade-in-offer</h4>
+        <h4>trade-in-offer</h4>
         <h3>super value deals</h3>
         <h1>On all products</h1>
         <p>Save with more copoun and up to 60% off!!</p>

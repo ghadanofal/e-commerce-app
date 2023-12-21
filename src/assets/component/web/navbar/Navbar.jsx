@@ -107,7 +107,7 @@ export default function Navbar() {
                 <>
                   <ul className="dropdown-menu ">
                     <li>
-                      <Link to="/profile" className="dropdown-item" href="#">
+                      <Link to="/profile/info" className="dropdown-item" href="#">
                         profile
                       </Link>
                     </li>

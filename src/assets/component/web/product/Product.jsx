@@ -308,7 +308,7 @@ const onSubmit= async (users)=>{
     <div className='login__submit'>
        <input type="submit" value='submit review' className='sign-in button button__text' disabled={!formik.isValid}/>
        
-    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+    <FaChevronRight className='button__icon fas fa-chevron-right review-icon' /> 
     </div>
     
     </form>  

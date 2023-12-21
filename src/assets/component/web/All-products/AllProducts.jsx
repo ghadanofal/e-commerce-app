@@ -129,20 +129,23 @@ let [loading, setLoading] = useState(true)
     <h2 className="mb-4 text-center ">Our Products</h2>
   </div>
 
+<div className="row my-4">
+ 
 
-
-  <div className="col-md-4">
-          <label className="form-label">Filter by Name:</label>
+  <div className="col-md-4 ">
+          {/* <p className="form-label">search by Name:</p> */}
           <input
             type="text"
-            className="form-control"
+            className="form-control border-5"
+            placeholder='Search by name '
             value={filterText}
             onChange={handleFilterChange} />
 </div>
 
-{/* sort */}
-<div className="dropdown m-3 ">
-  <button className="dropbtn rounded-3 ">Sort by</button>
+ {/* sort */}
+ <div className="col-md-3">
+ <div className="dropdown   d-flex justify-content-start align-items-center">
+  <button className="dropbtn rounded-3  ">Sort by</button>
   <div className="dropdown-content">
     <a href="#" onClick={ascendingEvent}>hight to low price</a>
     <a href="#" onClick={descendingEvent}>hight to low price</a>
@@ -150,7 +153,14 @@ let [loading, setLoading] = useState(true)
     <a href="#" onClick={descendingNameEvent}>descending name</a>
     
   </div>
+</div> 
 </div>
+
+</div>
+
+
+
+
 
 
 
@@ -171,10 +181,10 @@ let [loading, setLoading] = useState(true)
        
 
         <div className="comment">
-    {Array.from({ length: Math.floor(ele.ratingNumbers) }).map((ele) => (
+    {Array.from({ length: Math.ceil(ele.avgRating) }).map((ele) => (
         <span className='checked fs-4'>&#9733;</span>
         ))}
-        {Array.from({ length: 5- Math.floor( ele.ratingNumbers) }).map((ele) => (
+        {Array.from({ length: 5- Math.ceil( ele.avgRating) }).map((ele) => (
         <span className='non-checked fs-4'>&#9733;</span>
         ))}
         </div>

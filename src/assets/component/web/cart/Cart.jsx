@@ -44,9 +44,10 @@ const increase = async (productId) => {
 
 
 const decrease = async(productId)=>{
-  setLoading(true);
+  // setLoading(true);
   const res = await decreaseQuantity(productId);
-  setLoading(false)
+  
+  // setLoading(false)
   return res
 }
 
