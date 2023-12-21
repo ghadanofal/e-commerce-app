@@ -113,9 +113,8 @@ const onSubmit= async users=>{
     </div>
     
     <div className='login__submit'>
-       <input type="submit" value='log in' className='sign-in button button__text' disabled={!formik.isValid}/>
-       
-    <FaChevronRight className='button__icon fas fa-chevron-right' /> 
+       <input type="submit" value='log in' className='sign-in button button__text' disabled={!formik.isValid}/>  
+       <FaChevronRight className='button__icon fas fa-chevron-right' /> 
     </div>
     <p className='mt-5 '><Link to='/sendcode' className='forget'>Forget password?</Link></p> 
     

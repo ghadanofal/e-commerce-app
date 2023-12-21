@@ -127,3 +127,39 @@
   
 }
 /* Product Card End */
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn{
+  background-color: #776775;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 46px;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
